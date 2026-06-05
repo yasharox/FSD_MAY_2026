@@ -1,0 +1,71 @@
+Machine coding session DOM 2
+
+
+h1.
+classList.add()
+classList.remove()
+classList.toggle()
+
+DomTraversal:
+
+1) parent element
+2) children
+3) sibling ( previousElementsibling,
+             nextElementsibling)
+
+
+Event lifecycle:
+
+form.addEventListner('submit', function(event) ){
+
+event.preventDefault();
+console.log( 'form submit);
+}
+
+const username = form.elements[0].value;
+const password = form.elements[1].value;
+
+console.log( username );
+console.log( password );
+
+
+Fragments:
+
+1) controls dom manipulation.
+2) no memory occupied
+
+
+==============
+Dom 3 session
+==============
+
+Agenda
+
+1) Event Lifecycle 
+ 1> capturing phase
+ 2> target phase
+ 3> bubbling phase( default)
+
+Event delegations  design pattern ( discussed )
+
+
+This is a result of event bubbling
+
+
+Machine coding Round Practise session
+
+Example :
+
+btn.addEventListener('click' ,  function (){
+
+    const todotext =  input.value;
+
+    const li = document.createElement(li);
+    li.innerText = todotext;
+
+    list.append('li');
+
+})
+
+// accessing the application state and no dom manipulation
+
