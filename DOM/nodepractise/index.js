@@ -74,7 +74,7 @@ const movies = [
 // route 1
 const PORT = 9000;
 app.get('/', (req, res) => {
-    res.send( "Hello, 🌎❗❗❗😆");
+    res.send( "Hello Yash, Welcome to Node.js 🌎❗❗❗😆");
 })
 
 // route 2
