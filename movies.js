@@ -6,6 +6,7 @@ import {
   createMovies,
   getMoviesById,
   deleteMovieById,
+  updateMovieById,
 } from "./helper.js";
 
 // route 2 //-> All movies page
@@ -49,7 +50,7 @@ router.get("/:id", async (req, res) => {
 
   movie
     ? res.send(movie)
-    : res.status(404).send({ msg: "Movie not found macha 😝😝" });
+    : res.status(404).send({ msg: "Movie not found  😝😝" });
 });
 
 // route 5 //-> for delete by id page✅
@@ -62,7 +63,22 @@ router.delete("/:id", async (req, res) => {
 
   movie
     ? res.send(movie)
-    : res.status(404).send({ msg: "Movie not found macha 😝😝" });
+    : res.status(404).send({ msg: "Movie not found  😝😝" });
+});
+
+// route 6 //-> for update by id page✅
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  const updatedMovie = req.body;
+
+  // db.movies.updateOne({"id":"105"}, {$set: updatedMovie})
+  const movie = await updateMovieById(id, updatedMovie);
+  console.log(movie);
+
+  movie
+    ? res.send(movie)
+    : res.status(404).send({ msg: "Movie not found  😝😝" });
 });
 
 export const moviesRouter = router;
