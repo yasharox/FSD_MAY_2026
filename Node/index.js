@@ -32,6 +32,10 @@ const MONGO_URL = process.env.MONGO_URL;
 // mongo cluster url placed to connect Atlas
 
 
+// const PORT = 9000;
+const PORT = process.env.PORT;
+
+
 async function createConnection (){
   const client = new MongoClient(MONGO_URL);
   await client.connect();// promise returns
@@ -44,7 +48,8 @@ const client = await createConnection(); // allowed only in type module
 
 
 // route 1
-const PORT = 9000;
+
+
 app.get('/', (req, res) => {
     res.send( "Hello Yash, Welcome to Node.js 🌎❗❗❗😆");
 })
