@@ -21,6 +21,7 @@ dotenv.config(); // getting all env keys
 // console.log(process.env); // prints all object in the console
 
 const app = express();
+app.use(express.json());
 
 // app.use -> intercept every req
 // app.use(express.json()); // every request in the body is parsed as json
@@ -33,7 +34,7 @@ const MONGO_URL = process.env.MONGO_URL;
 
 
 // const PORT = 9000;
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 9000;
 
 
 async function createConnection (){
