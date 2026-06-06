@@ -1,7 +1,7 @@
 
 // express code - frame work on node ( helps building server API end points easily)
 // alternatives- hapi,  sails
-//? -> is a query parameter
+// ? -> is a query parameter
 // node mon is only used in development not in production so we instal as dev dependencies
 // npm install --save-dev nodemon
 // "start": "node index.js" -> add in pakage json to short cut to run the app/ ease access
@@ -32,8 +32,6 @@ const MONGO_URL = process.env.MONGO_URL;
 // mongo cluster url placed to connect Atlas
 
 
-
-
 async function createConnection (){
   const client = new MongoClient(MONGO_URL);
   await client.connect();// promise returns
@@ -43,13 +41,14 @@ async function createConnection (){
 
 const client = await createConnection(); // allowed only in type module 
 
-// create => / movies 
+
 
 // route 1
 const PORT = 9000;
 app.get('/', (req, res) => {
     res.send( "Hello Yash, Welcome to Node.js 🌎❗❗❗😆");
 })
+
 
 // route 2
 app.get('/movies', async (req, res) => {
@@ -78,6 +77,7 @@ app.get('/movies', async (req, res) => {
     res.send( movie);    
 })
 
+
 // route 3
 app.post('/movies',express.json(), async (req, res) => { // using middle ware individually
 
@@ -93,6 +93,8 @@ app.post('/movies',express.json(), async (req, res) => { // using middle ware in
     
 })
 
+
+
 // route 4 
 app.get('/movies/:id', async (req, res) => {
     const {id} = req.params; 
@@ -105,7 +107,9 @@ app.get('/movies/:id', async (req, res) => {
 })
 app.listen ( PORT, () => console.log("The server is started", PORT));
 
-//Task
+
+
+// Task
 
 // movies - allmovies ✅
 // ? language - filtered by language ✅
@@ -118,10 +122,7 @@ app.listen ( PORT, () => console.log("The server is started", PORT));
 // U - update - PUT
 // D - Delete - DELETE
 
-// session 1:46 - intall mongodb
-
-
-
+// session 1:453 - intall mongodb
 
 // cloud -> its renting pc -> mongo Atlas -> install atlas online and gives access -> data online -> access from node app 
 
