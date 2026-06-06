@@ -93,9 +93,9 @@ app.post('/movies',express.json(), async (req, res) => { // using middle ware in
 
   
     const movie = await client.db("b251we").collection("movies").insertMany(data);
-    console.log(movie);
+    console.log(movie); 
 
-    res.send( );
+    res.send(movie );
     
 })
 
@@ -115,7 +115,7 @@ app.listen ( PORT, () => console.log("The server is started", PORT));
 
 
 
-// Task
+// Task -2:23
 
 // movies - allmovies ✅
 // ? language - filtered by language ✅
