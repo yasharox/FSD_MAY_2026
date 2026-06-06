@@ -36,6 +36,11 @@ const MONGO_URL = process.env.MONGO_URL;
 // const PORT = 9000;
 const PORT = process.env.PORT || 9000;
 
+if (!MONGO_URL) {
+  console.error("❌ CRITICAL: process.env.MONGO_URL is missing!");
+  process.exit(1);
+}
+
 
 async function createConnection (){
   const client = new MongoClient(MONGO_URL);
