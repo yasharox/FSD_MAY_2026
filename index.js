@@ -15,7 +15,7 @@ import { MongoClient } from "mongodb"; //"type": "module",
 import dotenv from "dotenv";
 import { getMovies, createMovies, getMoviesById } from "./helper.js";
 import { moviesRouter } from "./movies.js";
-import cors from ('cors');
+import cors from "cors";
 
 dotenv.config(); // getting all env keys
 
