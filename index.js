@@ -15,6 +15,7 @@ import { MongoClient } from "mongodb"; //"type": "module",
 import dotenv from "dotenv";
 import { getMovies, createMovies, getMoviesById } from "./helper.js";
 import { moviesRouter } from "./movies.js";
+import cors from ('cors');
 
 dotenv.config(); // getting all env keys
 
@@ -22,6 +23,9 @@ dotenv.config(); // getting all env keys
 
 const app = express();
 app.use(express.json());
+
+// Adds headers: Access-Control-Allow-Origin: *
+app.use(cors());
 
 // app.use -> intercept every req
 // app.use(express.json()); // every request in the body is parsed as json
@@ -52,11 +56,15 @@ export const client = await createConnection(); // allowed only in type module
 
 // route 1 -> rest endpoints //-> Home Page
 app.get("/", (req, res) => {
-  res.send("Hello Yash, Welcome to Node.js 🌎❗❗❗😆");
+  res.send("Welcome to Movie App");
 });
 
 app.use("/movies", moviesRouter);
 
 app.listen(PORT, () => console.log("The server is started", PORT));
 
-//session 2:00
+//session 2:12
+
+// 2:22
+
+// 2:15 api endpoint connect FE to BE -- session 8
