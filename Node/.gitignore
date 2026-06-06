@@ -1,5 +1,7 @@
 node_modules
 .env
+backups
+others
 
 
 # stores your password
