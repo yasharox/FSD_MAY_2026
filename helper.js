@@ -16,8 +16,18 @@ async function createMovies(data) {
 }
 
 async function getMoviesById(id) {
-  return await client.db("b251we").collection("movies").findOne({ id: id });
+  const collection = client.db("b251we").collection("movies");
+
+  // first check custom id
+  const movie = await collection.findOne({ id });
+
+  return movie
+    ? movie
+    : ObjectId.isValid(id)
+      ? await collection.findOne({ _id: new ObjectId(id) })
+      : null;
 }
+
 async function deleteMovieById(id) {
   const collection = client.db("b251we").collection("movies");
   //first check
