@@ -40,10 +40,18 @@ async function deleteMovieById(id) {
       : null;
 }
 async function updateMovieById(id, updatedMovie) {
-  return await client
-    .db("b251we")
-    .collection("movies")
-    .updateOne({ id: id }, { $set: updatedMovie });
+  const collection = client.db("b251we").collection("movies");
+
+  const movie = await collection.findOne({ id });
+
+  return movie
+    ? await collection.updateOne({ id }, { $set: updatedMovie })
+    : ObjectId.isValid(id)
+      ? await collection.updateOne(
+          { _id: new ObjectId(id) },
+          { $set: updatedMovie },
+        )
+      : null;
 }
 
 export {
